@@ -16,9 +16,9 @@
 
 ## このリポジトリの概要
 
-API サーバー (Go / WebSocket) とアプリケーション (Laravel + Vite) の各コードは、個別の Git リポジトリとして管理され、サブモジュールとして組み込まれています。
+websocket サーバー (Go / WebSocket) とアプリケーション (Laravel + Vite) の各コードは、個別の Git リポジトリとして管理され、サブモジュールとして組み込まれています。
 
-- API サーバー (Go)： `api/cmd`
+- websocket サーバー (Go)： `websocket/cmd`
 - アプリケーション (Laravel + Vite)： `app/src`
 
 ---
@@ -39,8 +39,8 @@ API サーバー (Go / WebSocket) とアプリケーション (Laravel + Vite) �
 
 ```
 .
-├── api
-│   ├── cmd                // API サーバー (Go) のコード（サブモジュール）
+├── websocket
+│   ├── cmd                // websocket サーバー (Go) のコード（サブモジュール）
 │   ├── docker
 │   │   └── Dockerfile     // 本番用 Dockerfile（例）
 │   └── docker.dev
@@ -61,7 +61,7 @@ API サーバー (Go / WebSocket) とアプリケーション (Laravel + Vite) �
 
 このリポジトリでは、以下のサブモジュールが利用されています。
 
-- **API サーバー**： `api/cmd`
+- **websocket サーバー**： `websocket/cmd`
 - **アプリケーション**： `app/src`
 
 **クローン時の注意点**
@@ -102,13 +102,13 @@ services:
     networks:
       - talk-to-world-network
 
-  api:
+  websocket:
     build:
-      context: ./api
+      context: ./websocket
       dockerfile: docker.dev/Dockerfile
-    container_name: api
+    container_name: websocket
     volumes:
-      - ./api/cmd:/app
+      - ./websocket/cmd:/app
     ports:
       - '8080:8080'
     depends_on:
@@ -158,11 +158,11 @@ volumes:
   - **用途**: Laravel アプリケーション (フロントエンド＆バックエンド)
   - **ポート**: ホスト側の `3000` 番ポートにマッピング。Vite の開発サーバー用。
   - **ボリューム**: `./app/src`（サブモジュール）を `/var/www/html` にマウント。
-- **api**
+- **websocket**
 
-  - **用途**: Go 言語による WebSocket チャットサーバー (API)
+  - **用途**: Go 言語による WebSocket チャットサーバー (websocket)
   - **ポート**: `8080` 番ポートにマッピング。
-  - **ボリューム**: `./api/cmd`（サブモジュール）を `/app` にマウント。
+  - **ボリューム**: `./websocket/cmd`（サブモジュール）を `/app` にマウント。
 
 - **mysql**
 
@@ -185,7 +185,7 @@ volumes:
 - **app コンテナ (Laravel + Vite)**
   - Node.js: **v18.20.6**
   - npm: **10.8.2**
-- **api コンテナ (Go)**
+- **websocket コンテナ (Go)**
   - Go: **go1.23.6 linux/amd64**
 - ※ Node.js は、Laravel 側で Vite を実行するために必要です。
 
@@ -204,7 +204,7 @@ volumes:
 2. **環境変数の設定（必要に応じて）**
 
    - Laravel 側 (`app/src` ディレクトリ直下) の `.env` ファイル
-   - Go 側 (`api/cmd` または `api/` 直下) の `.env` ファイル  
+   - Go 側 (`websocket/cmd` または `websocket/` 直下) の `.env` ファイル  
      ※ DB 接続設定や各種ポート番号など、ご自身の環境に合わせて編集してください。
 
 3. **依存パッケージのインストール（ローカル実行の場合）**
@@ -216,7 +216,7 @@ volumes:
      ```
    - **Go 側**:
      ```bash
-     cd ../../api/cmd
+     cd ../../websocket/cmd
      go mod tidy
      ```
      ※ Docker Compose 経由で実行する場合、依存パッケージのインストールは Dockerfile 内で行われることが多いため、必ずしもローカルでの作業は不要です。
@@ -240,7 +240,7 @@ volumes:
    docker-compose ps
    ```
 
-   - `app`、`api`、`mysql`、`nginx` 各コンテナが正常に起動していることを確認してください。
+   - `app`、`websocket`、`mysql`、`nginx` 各コンテナが正常に起動していることを確認してください。
 
 3. **アプリケーションへのアクセス**
 
@@ -258,7 +258,7 @@ volumes:
      npm run dev
      ```
 
-   - **Go API (WebSocket チャットサーバー)**  
+   - **Go websocket (WebSocket チャットサーバー)**  
      接続 URL: `ws://localhost:8080/ws`
 
    > ※ ポートマッピングや Nginx の設定は、`docker-compose.yml` および `./app/docker/nginx/default.conf` の内容をご確認ください。
@@ -274,7 +274,7 @@ volumes:
 
 2. **Go 側の再コンパイル**
 
-   - Go のコード変更時は、API コンテナの再ビルド・再起動が必要です。
+   - Go のコード変更時は、websocket コンテナの再ビルド・再起動が必要です。
    - ボリュームマウントによりローカルのコード変更は自動で反映されますが、反映されない場合はコンテナの再起動を行ってください。
 
 3. **ログの確認**  
@@ -282,7 +282,7 @@ volumes:
 
    ```bash
    docker-compose logs -f app
-   docker-compose logs -f api
+   docker-compose logs -f websocket
    docker-compose logs -f mysql
    docker-compose logs -f nginx
    ```

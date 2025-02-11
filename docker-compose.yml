@@ -15,13 +15,13 @@ services:
     networks:
       - talk-to-world-network
 
-  api:
+  websocket:
     build:
-      context: ./api
+      context: ./websocket
       dockerfile: docker.dev/Dockerfile
-    container_name: api
+    container_name: websocket
     volumes:
-      - ./api/cmd:/app
+      - ./websocket/cmd:/app
     ports:
       - '8080:8080'
     depends_on:

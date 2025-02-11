@@ -15,7 +15,7 @@ COPY ./cmd/ ./
 RUN go install github.com/air-verse/air@latest
 
 # コンテナ外（ホスト）からソースコードの変更を反映させるために volume マウント予定のディレクトリと同じ場所
-# （docker-compose.yml では、./api/cmd を /app にマウントすることを想定）
+# （docker-compose.yml では、./websocket/cmd を /app にマウントすることを想定）
 
 EXPOSE 8080
 

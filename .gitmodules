@@ -1,5 +1,5 @@
-[submodule "api/cmd"]
-	path = api/cmd
+[submodule "websocket/cmd"]
+	path = websocket/cmd
 	url = github:Skosuke/talk-to-world-websocket-server.git
 [submodule "app/src"]
 	path = app/src
