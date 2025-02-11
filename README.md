@@ -180,8 +180,8 @@ volumes:
 ## 動作環境
 
 - **Docker / Docker Compose**
-  - Docker version: **20.x** 以上
-  - Docker Compose version: **1.29** 以上 (または Docker Compose v2)
+  - Docker: **20.x** 以上
+  - Docker Compose: **1.29** 以上 (または Docker Compose v2)
 - **app コンテナ (Laravel + Vite)**
   - Node.js: **v18.20.6**
   - npm: **10.8.2**
