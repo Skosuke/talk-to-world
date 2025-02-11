@@ -2,11 +2,19 @@
 
 このリポジトリは、**1 対 1 ランダムチャットアプリケーション**の全体プロジェクトです。
 
-【入室画面】
-<img width="500" alt="Image" src="https://github.com/user-attachments/assets/c4eefa85-9b0f-48a5-aec1-3625a55fc41c" />
+## 入室画面
 
-【チャット画面】
-<img width="500" alt="Image" src="https://github.com/user-attachments/assets/9c5100fe-c1a5-4c77-ba6e-c7b1d4b354dc" />
+<p align="center">
+  <img width="500" alt="入室画面" src="https://github.com/user-attachments/assets/c4eefa85-9b0f-48a5-aec1-3625a55fc41c" />
+</p>
+
+## チャット画面
+
+<p align="center">
+  <img width="500" alt="チャット画面" src="https://github.com/user-attachments/assets/9c5100fe-c1a5-4c77-ba6e-c7b1d4b354dc" />
+</p>
+
+## このリポジトリの概要
 
 API サーバー (Go / WebSocket) とアプリケーション (Laravel + Vite) の各コードは、個別の Git リポジトリとして管理され、サブモジュールとして組み込まれています。
 
