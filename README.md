@@ -1,6 +1,13 @@
 # Talk To World
 
-このリポジトリは、**1 対 1 ランダムチャットアプリケーション**の全体プロジェクトです。  
+このリポジトリは、**1 対 1 ランダムチャットアプリケーション**の全体プロジェクトです。
+
+【入室画面】
+<img width="500" alt="Image" src="https://github.com/user-attachments/assets/c4eefa85-9b0f-48a5-aec1-3625a55fc41c" />
+
+【チャット画面】
+<img width="500" alt="Image" src="https://github.com/user-attachments/assets/9c5100fe-c1a5-4c77-ba6e-c7b1d4b354dc" />
+
 API サーバー (Go / WebSocket) とアプリケーション (Laravel + Vite) の各コードは、個別の Git リポジトリとして管理され、サブモジュールとして組み込まれています。
 
 - API サーバー (Go)： `api/cmd`
