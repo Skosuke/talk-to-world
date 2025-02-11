@@ -21,8 +21,6 @@ API サーバー (Go / WebSocket) とアプリケーション (Laravel + Vite) �
 - API サーバー (Go)： `api/cmd`
 - アプリケーション (Laravel + Vite)： `app/src`
 
-親リポジトリはこちら: [https://github.com/Skosuke/talk-to-world](https://github.com/Skosuke/talk-to-world)
-
 ---
 
 ## 目次
