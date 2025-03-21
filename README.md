@@ -5,13 +5,30 @@
 ## 入室画面
 
 <p align="center">
-  <img width="500" alt="入室画面" src="https://github.com/user-attachments/assets/c4eefa85-9b0f-48a5-aec1-3625a55fc41c" />
+  <img width="500" alt="入室画面" src="https://github.com/user-attachments/assets/36106d8c-6d68-4374-b41a-c5dd1e5adcf8" />
 </p>
 
 ## チャット画面
 
 <p align="center">
-  <img width="500" alt="チャット画面" src="https://github.com/user-attachments/assets/9c5100fe-c1a5-4c77-ba6e-c7b1d4b354dc" />
+  <h4>モバイル</h4>
+  <div align="center">
+    <img width="200" alt="チャット画面" src="https://github.com/user-attachments/assets/0b796b1e-b4de-4d8e-af5d-270e0a45b259" />
+    <img width="200" height="434" alt="チャット画面" src="https://github.com/user-attachments/assets/edd23a15-786a-4178-ae0a-921221393591" />
+  </div>
+
+  <h4>PC</h4>
+  <div align="center">
+    <img alt="チャット画面" src="https://github.com/user-attachments/assets/9bc27f4e-006f-449e-acc0-a845a9802d35" />
+  </div>
+</p>
+
+## ログイン画面
+<p align="center">
+  <h4>モバイル</h4>
+  <div align="center">
+    <img alt="ログイン画面" src="https://github.com/user-attachments/assets/152561e8-35d5-4b2b-8dca-63b05a718248" />
+  </div>
 </p>
 
 ## このリポジトリの概要
@@ -208,6 +225,7 @@ volumes:
      ※ DB 接続設定や各種ポート番号など、ご自身の環境に合わせて編集してください。
 
 3. **依存パッケージのインストール（ローカル実行の場合）**
+
    - **Laravel 側**:
      ```bash
      cd app/src
@@ -220,6 +238,20 @@ volumes:
      go mod tidy
      ```
      ※ Docker Compose 経由で実行する場合、依存パッケージのインストールは Dockerfile 内で行われることが多いため、必ずしもローカルでの作業は不要です。
+
+4. **Inertia ライブラリのインストール**
+
+   - プロジェクトルートで以下のコマンドを実行してください:
+     ```bash
+     composer require inertiajs/inertia-laravel
+     ```
+   - 必要に応じて composer dump-autoload や php artisan config:clear/php artisan cache:clear を実行してください.
+
+5. **@inertiajs/inertia-react のインストール**
+   - プロジェクトルートで以下のコマンドを実行してください:
+     ```bash
+     npm install @inertiajs/inertia-react --legacy-peer-deps
+     ```
 
 ---
 
